@@ -1,0 +1,7 @@
+#!/bin/bash
+
+while true
+do
+	/usr/local/bin/led.sh
+	sleep 5
+done
