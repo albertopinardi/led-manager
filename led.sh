@@ -3,7 +3,7 @@
 GREENLIMIT=250
 YELLOWLIMIT=1000
 
-serialport = '/dev/'$(dmesg | awk '$0 ~ "FTDI USB Serial Device converter now attached to ttyUSB.+$" { dev[$NF] = 1 } $0 ~ "disconnected from ttyUSB.+$" { delete dev[$NF] } END { for(i in dev) print i }')
+serialport = "/dev/$(dmesg | awk '$0 ~ "FTDI USB Serial Device converter now attached to ttyUSB.+$" { dev[$NF] = 1 } $0 ~ "disconnected from ttyUSB.+$" { delete dev[$NF] } END { for(i in dev) print i }')"
 
 #APITIME=`wget -q -O - http://api.musixmatch.com/stats/stats.php | grep Average | awk '{print $4}' | sed s/ms// | cut -d '.' -f 1`
 
